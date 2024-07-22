@@ -16,6 +16,19 @@ function Get-RandomName {
     return @{FirstName=$firstName; LastName=$lastName; UserName="$firstName.$lastName"}
 }
 
+# Function to show a banner when run
+function ShowBanner {
+    $banner  = @()
+    $banner+= '========================================'
+    $banner+= 'Invoke-bAD'
+    $banner+= ''                                                  
+    $banner+= 'By Jose Toledo @enigmatracer'
+    $banner+= '========================================'
+    $banner | foreach-object {
+        Write-Host $_
+    }                             
+}
+
 # Function to generate a random workstation name
 function Get-RandomWorkstationName {
     $prefixes = @("WS", "PC", "LT")
@@ -25,6 +38,9 @@ function Get-RandomWorkstationName {
 
 # Get the domain distinguished name
 $domainDN = (Get-ADDomain).DistinguishedName
+
+# Show banner
+ShowBanner
 
 # Reduce password policy to disable complexity and length to 4
 Set-ADDefaultDomainPasswordPolicy -Identity $domainDN -ComplexityEnabled $false -MinPasswordLength 4
