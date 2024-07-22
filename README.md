@@ -13,3 +13,7 @@ IEX((new-object net.webclient).downloadstring("https://raw.githubusercontent.com
 You can then open this script in Powershell (or ISE) and run it AS ADMINISTRATOR.
 
 It will ask you to specify the amount of OU's, users, and workstations you want to create and then place them in random locations and provide random attributes and permissions.
+
+# Wishlist
+- Making this a reusable PowerShell module
+- Adding SPN's to find kerberoastable accounts
